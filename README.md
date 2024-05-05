@@ -1,4 +1,4 @@
-#Revisiting COVID-19 Data in Europe: Incidence, Mortality and Vaccination#
+#Revisiting COVID-19 Data in Europe: Incidence, Mortality and Vaccination
 
 In this report, I analyzed COVID-19 data "covid_data.csv" while focusing on European countries. Data was downloaded from Our World in Data (https://github.com/owid/covid-19-data/tree/master/public/data) and saved as `covid-data.csv`, a daily updated and open-source data for everyone. The data used in this project was updated till 19th April, 2023. The data was further filtered to desired forms to answer some research questions. This project was focused on Europe. With a shell script, the global dataset was filtered by continent to output only European countries. The European COVID-19 data was further filtered and analyzed to present the weekly incidence of COVID-19. Further analysis and visualization were done in R.
 
