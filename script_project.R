@@ -1,9 +1,11 @@
 library(dplyr)
 library(tidyverse)
 library(lubridate)
+tinytex::install_tinytex()
+library(tinytex)
+library(gridExtra)
 
-
-####TABLE OF PREVALENCE, MORTALITY AND FULLNVACCINATION FOR ALL REGIONS 20TH APRIL 2024####
+####TABLE OF PREVALENCE, MORTALITY AND FULL VACCINATION FOR ALL REGIONS 20TH APRIL 2024####
 #Import data
 covid_data_europe <- read_csv("./covid_data_europe_full.csv")
 
@@ -134,10 +136,9 @@ last_points <- vacc_per_100_people_sel_countries %>%
   filter(date == max(date)) %>%
   ungroup()
 
+# Add the empty row to the end of the data frame to give room for legends on the plot
 empty_row <- data.frame(location = NA, date = "2024-05-01", total_vaccinations = NA, population = NA,
                         vaccinations_per_100_people = NA)
-
-# Add the empty row to the end of the data frame
 vacc_per_100_people_sel_countries <- rbind(vacc_per_100_people_sel_countries, empty_row)
 
 
@@ -308,7 +309,7 @@ vacc_data_last_day_percent$date <- format(as.Date(vacc_data_last_day_percent$dat
 #Make a plot of country against percentage people vaccinated
 percentage_people_vaccinated <- ggplot(vacc_data_last_day_percent, aes (x = percentage_people_vaccinated, y = reorder(location, + percentage_people_vaccinated), fill = location)) + 
   geom_bar(stat = "identity", width = 0.75) +
-  labs(x = "Percentage of population", y = "Country") +
+  labs(x = "", y = "Country") +
   theme(legend.position = "none") + 
   geom_text(aes(label = date), hjust = 1, vjust = 0.5, size = 3, color = "black") +
   scale_x_continuous(labels = scales::percent_format(scale = 1))
@@ -317,7 +318,7 @@ percentage_people_vaccinated <- ggplot(vacc_data_last_day_percent, aes (x = perc
 ggsave("percentage_people_vaccinated.png", width = 7, height = 7)
 
 
-####PERCENTAGE OF PEOPLE VACCINATED FULLY VACCINATED IN SELECTED COUNTRIES WHOLE DATA####
+####PERCENTAGE OF PEOPLE FULLY VACCINATED IN SELECTED COUNTRIES####
 
 #Load the data
 covid_data_europe <- read_csv("./covid_data_europe_full.csv")
@@ -354,7 +355,7 @@ full_vacc_data_last_day_percent$date <- format(as.Date(full_vacc_data_last_day_p
 #Make a plot of country against percentage people vaccinated
 percentage_people_fully_vaccinated <- ggplot(full_vacc_data_last_day_percent, aes (x = percentage_people_fully_vaccinated, y = reorder(location, + percentage_people_fully_vaccinated), fill = location)) + 
   geom_bar(stat = "identity", width = 0.75) +
-  labs(x = "Percentage of population", y = "Country") +
+  labs(x = "", y = "Country") +
   theme(legend.position = "none") + 
   geom_text(aes(label = date), hjust = 1, vjust = 0.5, size = 3, color = "black") +
   scale_x_continuous(labels = scales::percent_format(scale = 1))
