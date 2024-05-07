@@ -145,7 +145,7 @@ ggplot(cases_per_capita, aes (x = cases_per_capita, y = reorder(location, +cases
 
 Moreover, the vaccination rates of the European countries were looked at. It is important to understand the trend of vaccination over the past years, perhaps there were moments of high vaccination rates and time there were plateaus in the curves. To avoid congestion in the plot, 12 countries were selected based on their high data availability. Also, the analysis was stopped at December 2023 for uniformity. This was because some countries stopped reporting in December 2023. The location, date, population, and total_vaccinations columns were extracted from the main table. Total vaccination here is the cumulative number of vaccinations administered from the start of the vaccination exercise up to a day. These values were calculated as a percentage of the population of the selected countries. A linear regression analysis was conducted to establish the differences in the vaccination rates across the different countries. Generally, a sharp increase in cumulative vaccinations per 100 people was noticed from the second quarter of 2021 up till the first quarter of 2022 (Figure 2). This was expected since that was the period COVID-19 vaccines were approved and rolled out globally. Statistical analysis shows a significant difference (ANOVA p-value: 0.0000, R-squared:0.8467) in the vaccination trend in the selected country between January 2020 and December 2023. This suggests that different factors peculiar to each selected country as well as time of the year influences COVID-19 vaccination rates.
 
-```{r Cumulative vaccination, echo = FALSE, message = FALSE, warning = FALSE, results='hide', fig.cap = paste("COVID-19 cases per capita in European countries. Data was sourced from Our World In Data and the coverage in this plot was January 2020 - December 2023. Generally, a sharp increase in cumulative vaccinations per 100 people was noticed from the second quarter of 2021 up till the first quarter of 2022 . Statistical analysis shows a significant difference (ANOVA p-value:", p_value_cum_vac, "R-squared:", R_squared_cum_vac,") in the vaccination trend in the selected countries."), fig.width = 10, fig.height = 8}
+```{r Cumulative vaccination, echo = FALSE, message = FALSE, warning = FALSE, results='hide', fig.cap = paste("Cumulative vaccination trend in selected European countries. Data was sourced from Our World in Data and the coverage in this plot was January 2020 - December 2023. Generally, a sharp increase in cumulative vaccinations per 100 people was noticed from the second quarter of 2021 up till the first quarter of 2022 . Statistical analysis shows a significant difference (ANOVA p-value:", p_value_cum_vac, "R-squared:", R_squared_cum_vac,") in the vaccination trend in the selected countries."), fig.width = 10, fig.height = 8}
 
 #Import the table
 covid_data_europe <- read_csv("./covid_data_europe_dec2023.csv")
@@ -486,7 +486,7 @@ p_value_cases <- overall_p(cases_interaction) %>% format(round(., 2), nsmall = 5
 R_squared_cases <- summary(cases_interaction)$adj.r.squared %>% format(round(., 3), nsmall = 1)
 
 
-####DEATHS CAUSED BY COVID-19 BY SEASONS OF THE YEAR MARCH 2020 TO FEB 2024####
+####COVID 19 DEATHS BY SEASONS OF THE YEAR FROM MARCH 2020 TO FEB 2024####
 
 #Import the CSV file
 covid_data_europe <- read_csv("covid_data_europe_full.csv")
