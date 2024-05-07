@@ -35,7 +35,7 @@ Furthermore, the trend of monthly vaccination in selected countries was determin
 
 Although vaccines have been widely distributed and have gained wide acceptance globally, it would be helpful to know the percentage of residents of countries who were vaccinated at least once or fully vaccinated. Fully vaccinated people have taken the first and second doses of the COVID-19 vaccine. In this analysis, the dataset up till April 2024 was used. Necessary columns for selected countries were extracted. The number of people vaccinated only once and fully vaccinated was taken as a percentage of the population. The plotted bars also bear the last data reporting date for each country.
 
-<h2>Seasional influence on incidence and mortality</h2>
+<h2>Seasonal influence on incidence and mortality</h2>
 
 Also, I attempted to answer the question of the impact of season on the incidence and mortality rates of COVID-19. Since the winter season cuts across two years, the season year was given the year it is starting. e.g. December 2021, January 2022 and February 2022 were classified as Winter 2022. Data was visualized with box plots containing multiple samples (years) per season. I conducted a linear regression analysis to explore the influence of seasonality on the number of COVID-19 cases and deaths.
 
