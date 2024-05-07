@@ -97,13 +97,14 @@ cases_per_capita <- total_cases_country %>%
   mutate(cases_per_capita = sum_new_cases / population)
 
 #Make a plot of country against new cases per capita
-cases_per_capita <- ggplot(cases_per_capita, aes (x = cases_per_capita, y = reorder(location, +cases_per_capita), fill = location)) + 
+cases_per_capita_plot <- ggplot(cases_per_capita, aes (x = cases_per_capita, y = reorder(location, +cases_per_capita), fill = location)) + 
   geom_bar(stat = "identity", width = 0.75) +
   theme(legend.position = "none") +
   labs(x = "New cases per capita",y = "Country") +
   theme(axis.text.y = element_text(size = 7.5))
+print(cases_per_capita_plot)
 
-ggsave("cases_per_capita.png", width = 7, height = 7)
+ggsave("cases_per_capita_plot.png", width = 7, height = 7)
 
 
 ####CUMULATIVE VACCINE DOSE PER 100 PEOPLE IN SELECTED COUNTRIES JAN 2020 TO DEC 2023####
@@ -143,14 +144,15 @@ vacc_per_100_people_sel_countries <- rbind(vacc_per_100_people_sel_countries, em
 
 
 #Create the plot
-cumulative_vaccinations_per_100_people <- ggplot(vacc_per_100_people_sel_countries, aes(x = date, y = vaccinations_per_100_people, color = location)) +
+cumulative_vaccinations_per_100_people_plot <- ggplot(vacc_per_100_people_sel_countries, aes(x = date, y = vaccinations_per_100_people, color = location)) +
   geom_line() +
   geom_text(data = last_points, aes(label = location, y = vaccinations_per_100_people), 
             nudge_x = 0.5, hjust = 0, check_overlap = FALSE, size = 3) +  
   theme(legend.position = "none") + labs(x = "Year", y = "Cumulative vaccinations per 100 people", color = "Region")
+print(cumulative_vaccinations_per_100_people_plot)
 
 #Save the plot
-ggsave("cumulative_vaccinations_per_100_people.png", width = 7, height = 7)
+ggsave("cumulative_vaccinations_per_100_people_plot.png", width = 7, height = 7)
 
 
 
@@ -234,15 +236,15 @@ monthly_vacc_per_100_people_sel_countries$month <- format(monthly_vacc_per_100_p
 monthly_vacc_per_100_people_sel_countries$year <- format(monthly_vacc_per_100_people_sel_countries$date, "%Y")
 
 #Make the plot
-monthly_vaccinations_per_100_people <- ggplot(monthly_vacc_per_100_people_sel_countries, aes(x = date, y = monthly_vaccinations_per_100_people, color = location)) +
+monthly_vaccinations_per_100_people_plot <- ggplot(monthly_vacc_per_100_people_sel_countries, aes(x = date, y = monthly_vaccinations_per_100_people, color = location)) +
   geom_line() +
   labs(x = "Month", y = "Monthly vaccinations per 100 people", color = "Country") +
   scale_x_date(date_labels = "%b %Y", date_breaks = "2 months") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
+print(monthly_vaccinations_per_100_people_plot)
 
 #Save the plot
-ggsave("monthly_vaccinations_per_100_people.png", width = 7, height = 7)
+ggsave("monthly_vaccinations_per_100_people_plot.png", width = 7, height = 7)
 
 
 #Conduct a regression analysis
@@ -307,15 +309,16 @@ vacc_data_last_day_percent$date <- format(as.Date(vacc_data_last_day_percent$dat
 
 
 #Make a plot of country against percentage people vaccinated
-percentage_people_vaccinated <- ggplot(vacc_data_last_day_percent, aes (x = percentage_people_vaccinated, y = reorder(location, + percentage_people_vaccinated), fill = location)) + 
+percentage_people_vaccinated_plot <- ggplot(vacc_data_last_day_percent, aes (x = percentage_people_vaccinated, y = reorder(location, + percentage_people_vaccinated), fill = location)) + 
   geom_bar(stat = "identity", width = 0.75) +
   labs(x = "", y = "Country") +
   theme(legend.position = "none") + 
   geom_text(aes(label = date), hjust = 1, vjust = 0.5, size = 3, color = "black") +
   scale_x_continuous(labels = scales::percent_format(scale = 1))
+print(percentage_people_vaccinated_plot)
 
 #Save the plot
-ggsave("percentage_people_vaccinated.png", width = 7, height = 7)
+ggsave("percentage_people_vaccinated_plot.png", width = 7, height = 7)
 
 
 ####PERCENTAGE OF PEOPLE FULLY VACCINATED IN SELECTED COUNTRIES####
@@ -353,15 +356,15 @@ full_vacc_data_last_day_percent$date <- format(as.Date(full_vacc_data_last_day_p
 
 
 #Make a plot of country against percentage people vaccinated
-percentage_people_fully_vaccinated <- ggplot(full_vacc_data_last_day_percent, aes (x = percentage_people_fully_vaccinated, y = reorder(location, + percentage_people_fully_vaccinated), fill = location)) + 
+percentage_people_fully_vaccinated_plot <- ggplot(full_vacc_data_last_day_percent, aes (x = percentage_people_fully_vaccinated, y = reorder(location, + percentage_people_fully_vaccinated), fill = location)) + 
   geom_bar(stat = "identity", width = 0.75) +
   labs(x = "", y = "Country") +
   theme(legend.position = "none") + 
   geom_text(aes(label = date), hjust = 1, vjust = 0.5, size = 3, color = "black") +
   scale_x_continuous(labels = scales::percent_format(scale = 1))
-
+print(percentage_people_fully_vaccinated_plot)
 #Save the plot
-ggsave("percentage_people_fully_vaccinated.png", width = 7, height = 7)
+ggsave("percentage_people_fully_vaccinated_plot.png", width = 7, height = 7)
 
 
 ####NEW COVID 19 CASES BY SEASONS OF THE YEAR MARCH 2020 TO FEB 2024####
@@ -416,11 +419,12 @@ covid_europe_new_cases_season_grouped <- covid_europe_new_cases_season %>%
 
 
 #Make a boxplot
-seasonal_cases <- ggplot(covid_europe_new_cases_season_grouped, aes(x = season, y = sum_new_cases_grouped)) + geom_boxplot() + 
+seasonal_cases_plot <- ggplot(covid_europe_new_cases_season_grouped, aes(x = season, y = sum_new_cases_grouped)) + geom_boxplot() + 
   labs(x = "Season", y = "Number of Cases")
+print(seasonal_cases_plot)
 
 #Save the plot
-ggsave("seasonal_cases.png", width = 7, height = 7)
+ggsave("seasonal_cases_plot.png", width = 7, height = 7)
 
 
 
@@ -454,7 +458,7 @@ R_squared_cases <- summary(cases_interaction)$adj.r.squared %>% format(round(., 
 
 
 
-####DEATHS CAUSED BY COVID-19 BY SEASONS OF THE YEAR MARCH 2020 TO FEB 2024####
+####COVID 19 DEATHS BY SEASONS OF THE YEAR FROM MARCH 2020 TO FEB 2024####
 
 #Import the CSV file
 covid_data_europe <- read_csv("covid_data_europe_full.csv")
@@ -505,11 +509,12 @@ covid_europe_new_deaths_season_grouped <- covid_europe_new_deaths_season %>%
   summarize(sum_new_deaths_grouped = sum (sum_new_deaths))
 
 #Make a boxplot
-seasonal_deaths <- ggplot(covid_europe_new_deaths_season_grouped, aes(x = season, y = sum_new_deaths_grouped)) + geom_boxplot() + 
+seasonal_deaths_plot <- ggplot(covid_europe_new_deaths_season_grouped, aes(x = season, y = sum_new_deaths_grouped)) + geom_boxplot() + 
   labs(x = "Season", y = "Number of Deaths")
+print(seasonal_deaths_plot)
 
 #Save the plot 
-ggsave("seasonal_deaths.png", width = 7, height = 7)
+ggsave("seasonal_deaths_plot.png", width = 7, height = 7)
 
 #Do the regression analysis
 library(moderndive)
