@@ -13,6 +13,7 @@ To complete and report this analysis, the following packages were installed;
 `library(ggExtra)`
 `library(tinytex)`
 `library(knitr)`
+`library(moderndive)`
 
 <h2>COVID-19 epidemiology and vaccination rates in European regions</h2>
 
