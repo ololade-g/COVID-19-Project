@@ -5,6 +5,7 @@ The goal of this study was to determine COVID-19 incidence, mortality, and vacci
 A shell script was created to output the data from Europe up to date and also data from Europe stopping on 31st December 2023. The December 2023 data was used for a few analyses because some countries stopped reporting data at that time. The shell script will also produce a file named 'covid_europe_wk_new_cases_dec2023.csv'. This data contains the weekly number of COVID-19 cases up till December 2023. Run `script_project.sh [path to COVID-19 data file]` in bash to get these output files. Further analyses and visualizations aimed at answering some research questions were done with R. The script `script_project.R` contains the code lines used for the analysis and visualizations. All visualizations were saved in the `plots/` folder.
 
 <h2>Packages needed fo the analysis and report</h2>
+
 To complete and report this analysis, the following packages were installed; 
 `library(dplyr)` 
 `library(tidyverse)` 
