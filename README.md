@@ -1,4 +1,11 @@
 # Revisiting COVID-19 Data in Europe: Incidence, Mortality and Vaccination
+## Table of Contents
+[Introduction](https://github.com/ololade-g/covid-19-project/blob/main/README.md#introduction)
+[Installation](https://github.com/ololade-g/covid-19-project/blob/main/README.md#intallation)
+[Data Source](https://github.com/ololade-g/covid-19-project/blob/main/README.md#Data-Source)
+
+
+
 ## Introduction
 This study analyzes COVID-19 incidence, mortality, and vaccination rates across Europe using data from Our World in Data. A shell script filters the global dataset for European countries, producing files like ‘covid_europe_wk_new_cases_dec2023.csv’ with weekly case numbers until December 2023. To execute, run script_project.sh [path to COVID-19 data file]. Subsequent analysis and visualization are conducted in R, with scripts available in script_project.R and outputs stored in the plots/ directory.
 
