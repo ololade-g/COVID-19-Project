@@ -1,9 +1,18 @@
 # Revisiting COVID-19 Data in Europe: Incidence, Mortality and Vaccination
 ## Table of Contents
-[Introduction](https://github.com/ololade-g/covid-19-project/blob/main/README.md#introduction)
-[Installation](https://github.com/ololade-g/covid-19-project/blob/main/README.md#intallation)
+[Introduction](https://github.com/ololade-g/covid-19-project/blob/main/README.md#Introduction)
+
+[Installation](https://github.com/ololade-g/covid-19-project/blob/main/README.md#Intallation)
+
 [Data Source](https://github.com/ololade-g/covid-19-project/blob/main/README.md#Data-Source)
 
+[Data Processing](https://github.com/ololade-g/covid-19-project/blob/main/README.md#Data-Processing)
+
+[Key Analyses](https://github.com/ololade-g/covid-19-project/blob/main/README.md#Key-Analyses)
+
+[Conclusion](https://github.com/ololade-g/covid-19-project/blob/main/README.md#Conclusion)
+
+[Licences](https://github.com/ololade-g/covid-19-project/blob/main/README.md#Licenses)
 
 
 ## Introduction
