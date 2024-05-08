@@ -22,6 +22,10 @@ This study analyzes COVID-19 incidence, mortality, and vaccination rates across 
 To set up the project environment, you’ll need to install the following:
 * Shell: Ensure you have access to a command-line interface (CLI) like Bash, which is commonly available on Linux and macOS systems. Windows users can use Git Bash or enable Windows Subsystem for Linux (WSL).
 * RStudio: Download and install RStudio from the official RStudio website. Follow the installation instructions for your operating system.
+* R Markdown: Install R Markdown in RStudio with the following:
+  ```
+  install.packages("rmarkdown")
+  ```
 Make sure you have R installed before setting up RStudio. You can download R from the Comprehensive R Archive Network (CRAN).
 
 After installing both Shell and RStudio, you can clone the repository and follow the project-specific setup instructions to begin analysis
@@ -50,6 +54,7 @@ library(tinytex)
 library(knitr)
 library(moderndive)
 ```
+The scripts developed for this project are provided in `scripts/` folder of this repository.
 ## Key Analyses
 Below are the key analyses conducted:
 ### European Regions Analysis:
@@ -78,6 +83,10 @@ Below are the key analyses conducted:
 The impact of seasonality on COVID-19 incidence and mortality rates was investigated.
 Data was visualized using box plots containing multiple samples (years) per season.
 A linear regression analysis explored the influence of seasonality on the number of COVID-19 cases and deaths.
+
+* To analyze the data and generate the plots, run the `script_project.R` in RStudio.
+* To generate the pdf report, run the `project_paper.Rmd` in R Markdown
+
 ## Conclusion 
 In conclusion, this project considered the incidence, mortality, and vaccination rates of COVID-19. Data was analyzed using shell script and R, and visualized using the ggplot2 package in R.
 ## License
