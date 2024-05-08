@@ -61,7 +61,7 @@ Below are the key analyses conducted:
 The impact of seasonality on COVID-19 incidence and mortality rates was investigated.
 Data was visualized using box plots containing multiple samples (years) per season.
 A linear regression analysis explored the influence of seasonality on the number of COVID-19 cases and deaths.
-## Conclusion 
+# Conclusion 
 In conclusion, this project considered the incidence, mortality, and vaccination rates of COVID-19. Data was analyzed using shell script and R, and visualized using the ggplot2 package in R.
-## License
+# License
 This project is licensed under the MIT License.
