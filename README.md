@@ -16,7 +16,7 @@
 
 
 ## Introduction
-This study analyzes COVID-19 incidence, mortality, and vaccination rates across Europe using data from Our World in Data. A shell script filters the global dataset for European countries, producing files like ‘covid_europe_wk_new_cases_dec2023.csv’ with weekly case numbers until December 2023. To execute, run script_project.sh [path to COVID-19 data file]. Subsequent analysis and visualization are conducted in R, with scripts available in script_project.R and outputs stored in the plots/ directory.
+This study analyzes COVID-19 incidence, mortality, and vaccination rates across Europe using data from Our World in Data. A shell script filters the global dataset for European countries, producing files like `covid_europe_wk_new_cases_dec2023.csv` with weekly case numbers until December 2023. To execute, run `bash script_project.sh [path to COVID-19 data file]`. Subsequent analysis and visualization are conducted in R, with scripts available in `script_project.R` and generated plots stored in the `plots/` directory.
 
 ## Installation
 To set up the project environment, you’ll need to install the following:
@@ -28,7 +28,7 @@ To set up the project environment, you’ll need to install the following:
   ```
 Make sure you have R installed before setting up RStudio. You can download R from the Comprehensive R Archive Network (CRAN).
 
-After installing both Shell and RStudio, you can clone the repository and follow the project-specific setup instructions to begin analysis
+After installing both Shell and RStudio, you can clone the repository and follow the project-specific setup instructions to begin analysis.
 
 ## Data Source
 * The project utilizes covid-data.csv from Our World in Data, an open-source dataset updated daily.
