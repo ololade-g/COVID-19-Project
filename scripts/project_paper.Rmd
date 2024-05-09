@@ -28,7 +28,7 @@ The Coronavirus (COVID-19) disease caused by SARS-CoV-2 virus was declared an em
 The Coronavirus (COVID-19) disease caused by SARS-CoV-2 virus was declared an emergency of international public health concern by the World Health Organization (WHO) in January 2020 [1,2]. As of 7 May 2024, 6.8 million confirmed deaths and 676 million confirmed cases of the infection have been recorded [3]. Asides the precautionary methods, governments have resorted to vaccination as a means of containing the infection [4]. As of 7 May 2024, 13 billion vaccine doses have been administered worldwide [3]. Vaccination inclination however varies across regions and international economic classes, and this may influence the incidence and mortality rates. In this report, I examined the incidence, mortality and vaccination rates of European countries while hoping that it aids the governments in their policy making on COVID-19 containment.
 
 ### \underline{Methods}
-In this report, I analyzed COVID-19 data "covid_data.csv" while focusing on European countries. Data was downloaded from Our World in Data using the link "https://github.com/owid/covid-19-data/tree/master/public/data". Our World in Data is a daily updated and open-source data source for everyone. The data used in this project was updated till 19th April, 2023. The data was further filtered to desired forms to answer some research questions. This project was focused on Europe. With a shell script, the global dataset was filtered by continent to output only European countries. The European COVID-19 data was further filtered and analyzed to present the weekly incidence of COVID-19. Further analysis and visualization were done in R.
+In this report, I analyzed COVID-19 data "covid_data.csv" while focusing on European countries. Data was downloaded from Our World in Data using the link "https://github.com/owid/covid-19-data/tree/master/public/data". Our World in Data is a daily updated and open-source data source for everyone. The data used in this project was updated till 19th April, 2024. The data was further filtered to desired forms to answer some research questions. This project was focused on Europe. With a shell script, the global dataset was filtered by continent to output only European countries. The European COVID-19 data was further filtered and analyzed to present the weekly incidence of COVID-19. Further analysis and visualization were done in R.
 The key indicators used in this study were total cases per hundred, total deaths per hundred, total vaccinations per hundred, total cases per capita and vaccination rates. Statistical analysis was conducted using linear regression.
 
 ### \underline{Results and Discussion}
@@ -39,7 +39,7 @@ To determine the regional difference in the epidemiology and vaccination rates, 
 library(tidyverse)
 library(knitr)
 #Import data
-covid_data_europe <- read_csv("./covid_data_europe_full.csv")
+covid_data_europe <- read_csv("../data/covid_data_europe_full.csv")
 
 #Extract necessary columns from the table
 cases_deaths_vacc_data <- covid_data_europe[c("location", "new_cases", "new_deaths", "new_vaccinations", "population")]
@@ -123,7 +123,7 @@ Aside from the region, a difference in incidence across countries may also be ex
 ```{r Cases per capita, echo = FALSE, message = FALSE, results='hide', fig.cap = "COVID-19 cases per capita in European countries. Data was sourced from Our World In Data and the coverage in this plot was January 2020 - December 2023.  Cyprus had the highest prevalence, followed closely by San Marino while it was least in Vatican.", fig.width = 10, fig.height = 8}
 
 #Read the CSV file
-covid_europe_wk_new_cases <- read_csv("covid_europe_wk_new_cases_dec2023.csv")
+covid_europe_wk_new_cases <- read_csv("../data/covid_europe_wk_new_cases_dec2023.csv")
 
 #Get the sum of all new cases per country
 total_cases_country <- covid_europe_wk_new_cases %>%
@@ -148,7 +148,7 @@ Moreover, the vaccination rates of the European countries were looked at. It is 
 ```{r Cumulative vaccination, echo = FALSE, message = FALSE, warning = FALSE, results='hide', fig.cap = paste("Cumulative vaccination trend in selected European countries. Data was sourced from Our World in Data and the coverage in this plot was January 2020 - December 2023. Generally, a sharp increase in cumulative vaccinations per 100 people was noticed from the second quarter of 2021 up till the first quarter of 2022 . Statistical analysis shows a significant difference (ANOVA p-value:", p_value_cum_vac, "R-squared:", R_squared_cum_vac,") in the vaccination trend in the selected countries."), fig.width = 10, fig.height = 8}
 
 #Import the table
-covid_data_europe <- read_csv("./covid_data_europe_dec2023.csv")
+covid_data_europe <- read_csv("../data/covid_data_europe_dec2023.csv")
 
 #Extract necessary columns from the table
 vacc_data <- covid_data_europe[c("location", "date", "total_vaccinations", "population")]
@@ -225,7 +225,7 @@ Furthermore, I analyzed the data to see the trend of monthly vaccination in sele
 ```{r Monthly vaccination per 100 people, echo = FALSE, message = FALSE, warning = FALSE, results='hide', fig.cap = paste("Monthly vaccination trend in selected European countries. Data was sourced from Our World In Data and the coverage in this plot was January 2020 - December 2023. Vaccination began in Belgium, Czechia and Italy in January 2021 followed briefly later by other countries. Generally, there was an initial increase in vaccination rates, followed by a decline that lasted 4 months, then an increase and subsequent decline and flattening. Statistical analysis shows a significant difference in the monthly vaccinations per 100 people trend across the different selected countries (ANOVA p-value:", p_value_mon_vac, "R-squared:", R_squared_mon_vac,")."), fig.width = 10}
 
 #Import the table
-covid_data_europe <- read_csv("./covid_data_europe_dec2023.csv")
+covid_data_europe <- read_csv("../data/covid_data_europe_dec2023.csv")
 
 #Extract necessary columns from the table
 daily_vacc_data <- covid_data_europe[c("location", "date", "new_vaccinations", "population")]
@@ -312,7 +312,7 @@ Although vaccines have been widely distributed and have gained wide acceptance g
 ```{r Percentage people vaccinated, echo = FALSE, message = FALSE, warning = FALSE, results='hide', fig.cap = paste ("Percentages of the populations of selected countries that have received at least one dose of the COVID-19 vaccine (a) or have been fully vaccinated against COVID-19 (b). Data was sourced from Our World In Data and the coverage in this plot was January 2020 - April 2024. Date on each shows the end date for the vaccination reportage for each country."), fig.width = 10}
 
 ####PERCENTAGE OF PEOPLE VACCINATED AT LEAST ONCE IN SELECTED COUNTRIES####
-covid_data_europe <- read_csv("./covid_data_europe_full.csv")
+covid_data_europe <- read_csv("../data/covid_data_europe_full.csv")
 
 #Extract necessary columns from the table
 vacc_data <- covid_data_europe[c("location", "date", "people_vaccinated", "population")]
@@ -352,7 +352,7 @@ plot_a <- ggplot(vacc_data_last_day_percent, aes (x = percentage_people_vaccinat
   scale_x_continuous(labels = scales::percent_format(scale = 1)) + ggtitle("a")
 
 ####PERCENTAGE OF PEOPLE VACCINATED FULLY VACCINATED IN SELECTED COUNTRIES WHOLE DATA####
-covid_data_europe <- read_csv("./covid_data_europe_full.csv")
+covid_data_europe <- read_csv("../data/covid_data_europe_full.csv")
 
 #Extract necessary columns from the table
 full_vacc_data <- covid_data_europe[c("location", "date", "people_fully_vaccinated", "population")]
@@ -405,7 +405,7 @@ One of the major risk factors for respiratory infection is season. During cold s
 ####NEW COVID 19 CASES BY SEASONS OF THE YEAR MARCH 2020 TO FEB 2024####
 
 #Import the CSV file
-covid_data_europe <- read_csv("covid_data_europe_full.csv")
+covid_data_europe <- read_csv("../data/covid_data_europe_full.csv")
 
 #Filter the date and new cases columns
 covid_europe_new_cases <- covid_data_europe[c("date", "new_cases")]
@@ -489,7 +489,7 @@ R_squared_cases <- summary(cases_interaction)$adj.r.squared %>% format(round(., 
 ####COVID 19 DEATHS BY SEASONS OF THE YEAR FROM MARCH 2020 TO FEB 2024####
 
 #Import the CSV file
-covid_data_europe <- read_csv("covid_data_europe_full.csv")
+covid_data_europe <- read_csv("../data/covid_data_europe_full.csv")
 
 #Filter the date and new cases columns
 covid_europe_new_deaths <- covid_data_europe[c("date", "new_deaths")]
