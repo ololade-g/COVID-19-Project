@@ -7,7 +7,7 @@ library(gridExtra)
 
 ####TABLE OF PREVALENCE, MORTALITY AND FULL VACCINATION FOR ALL REGIONS 20TH APRIL 2024####
 #Import data
-covid_data_europe <- read_csv("./covid_data_europe_full.csv")
+covid_data_europe <- read_csv("./data/covid_data_europe_full.csv")
 
 #Extract necessary columns from the table
 cases_deaths_vacc_data <- covid_data_europe[c("location", "new_cases", "new_deaths", "new_vaccinations", "population")]
@@ -85,7 +85,7 @@ colnames(total_cases_deaths_vacc_region_per_100) <- c("Region", "Total cases per
 
 ####DETERMINE THE NEW CASES PER CAPITA FOR A PERIOD OF JAN 2020 TO DEC. 2023####
 #Read the CSV file
-covid_europe_wk_new_cases <- read_csv("covid_europe_wk_new_cases_dec2023.csv")
+covid_europe_wk_new_cases <- read_csv("./data/covid_europe_wk_new_cases_dec2023.csv")
 
 #Get the sum of all new cases per country
 total_cases_country <- covid_europe_wk_new_cases %>%
@@ -110,7 +110,7 @@ ggsave("cases_per_capita_plot.png", width = 7, height = 7)
 ####CUMULATIVE VACCINE DOSE PER 100 PEOPLE IN SELECTED COUNTRIES JAN 2020 TO DEC 2023####
 
 #Import the table
-covid_data_europe <- read_csv("./covid_data_europe_dec2023.csv")
+covid_data_europe <- read_csv("./data/covid_data_europe_dec2023.csv")
 
 #Extract necessary columns from the table
 vacc_data <- covid_data_europe[c("location", "date", "total_vaccinations", "population")]
@@ -188,7 +188,7 @@ R_squared_cum_vac <- summary(cum_vac_interaction)$adj.r.squared %>% format(round
 ####MONTHLY VACCINATION PER 100 PEOPLE JAN 2020 TO DEC 2023####
 
 #Import the table
-covid_data_europe <- read_csv("./covid_data_europe_dec2023.csv")
+covid_data_europe <- read_csv("./data/covid_data_europe_dec2023.csv")
 
 #Extract necessary columns from the table
 daily_vacc_data <- covid_data_europe[c("location", "date", "new_vaccinations", "population")]
@@ -277,7 +277,7 @@ R_squared_mon_vac <- summary(mon_vac_interaction)$adj.r.squared %>% format(round
 ####PERCENTAGE OF PEOPLE VACCINATED AT LEAST ONCE IN SELECTED COUNTRIES####
 
 #Load the data
-covid_data_europe <- read_csv("covid_data_europe_full.csv")
+covid_data_europe <- read_csv("./data/covid_data_europe_full.csv")
 
 #Extract necessary columns from the table
 vacc_data <- covid_data_europe[c("location", "date", "people_vaccinated", "population")]
@@ -324,7 +324,7 @@ ggsave("percentage_people_vaccinated_plot.png", width = 7, height = 7)
 ####PERCENTAGE OF PEOPLE FULLY VACCINATED IN SELECTED COUNTRIES####
 
 #Load the data
-covid_data_europe <- read_csv("./covid_data_europe_full.csv")
+covid_data_europe <- read_csv("./data/covid_data_europe_full.csv")
 
 #Extract necessary columns from the table
 full_vacc_data <- covid_data_europe[c("location", "date", "people_fully_vaccinated", "population")]
@@ -370,7 +370,7 @@ ggsave("percentage_people_fully_vaccinated_plot.png", width = 7, height = 7)
 ####NEW COVID 19 CASES BY SEASONS OF THE YEAR MARCH 2020 TO FEB 2024####
 
 #Import the CSV file
-covid_data_europe <- read_csv("covid_data_europe_full.csv")
+covid_data_europe <- read_csv("./data/covid_data_europe_full.csv")
 
 #Filter the date and new cases columns
 covid_europe_new_cases <- covid_data_europe[c("date", "new_cases")]
@@ -461,7 +461,7 @@ R_squared_cases <- summary(cases_interaction)$adj.r.squared %>% format(round(., 
 ####COVID 19 DEATHS BY SEASONS OF THE YEAR FROM MARCH 2020 TO FEB 2024####
 
 #Import the CSV file
-covid_data_europe <- read_csv("covid_data_europe_full.csv")
+covid_data_europe <- read_csv("./data/covid_data_europe_full.csv")
 
 #Filter the date and new cases columns
 covid_europe_new_deaths <- covid_data_europe[c("date", "new_deaths")]
