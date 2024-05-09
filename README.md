@@ -12,7 +12,7 @@
 
 [Conclusion](https://github.com/ololade-g/covid-19-project/blob/main/README.md#Conclusion)
 
-[Licences](https://github.com/ololade-g/covid-19-project/blob/main/README.md#Licenses)
+[License](https://github.com/ololade-g/covid-19-project/blob/main/README.md#License)
 
 
 ## Introduction
